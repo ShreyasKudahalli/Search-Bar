@@ -6,19 +6,11 @@ export default function SearchBar({ setResults }) {
     const [inputValue, setInputValue] = useState('')
 
     const fetchData = (value) => {
-        fetch("https://jsonplaceholder.typicode.com/users")
-        .then((response) => response.json())
-        .then((json) => {
-            const results = json.filter((user) => {
-            return (
-                value &&
-                user &&
-                user.name &&
-                user.name.toLowerCase().includes(value)
-            );
+        fetch(`http://127.0.0.1:8000/api/products/?search=${value}`)
+            .then((response) => response.json())
+            .then((data) => {
+                setResults(data);
             });
-            setResults(results);
-        });
     };
     const handleInputChange = (e) => {
         setInputValue(e.target.value)
