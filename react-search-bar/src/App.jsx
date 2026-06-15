@@ -1,9 +1,16 @@
+import './App.css'
+import SearchBar from './components/SearchBar.jsx'
 
 function App() {
 
   return (
     <>
-      <h1>React Search Bar</h1>
+      <div className="App">
+        <div className="search-bar-container">
+          <SearchBar />
+          <div>Searchbar Results</div>
+        </div>
+      </div>
     </>
   )
 }
